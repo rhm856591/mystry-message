@@ -2,7 +2,6 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/user";
 import bcrypt from "bcryptjs";
 import { sendVerificationEmail } from "@/helper/sendVerificatioEmail";
-import { hash } from "crypto";
 
 export async function POST(req: Request, res: Response) {
     await dbConnect();
@@ -66,6 +65,8 @@ export async function POST(req: Request, res: Response) {
             email,
             verifyCode
         )
+
+        console.log(emailResponse)
 
         if(!emailResponse.success){
             return Response.json({
