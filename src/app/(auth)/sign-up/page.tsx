@@ -71,6 +71,8 @@ const Page = () => {
         } finally {
             setIsSubmitting(false)
         }
+        console.log(data);
+        
     }
 
     return (
